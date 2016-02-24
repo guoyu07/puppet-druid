@@ -1,0 +1,17 @@
+# Managed by Puppet !
+
+# Node configuration
+<% if @host and @host != '' -%>
+druid.host=<%= @host %>
+<% end -%>
+<% if @port and @port != '' -%>
+druid.port=<%= @port %>
+<% end -%>
+<% if @service and @service != '' -%>
+druid.service=<%= @service %>
+<% end -%>
+
+# <%= @service %> configuration
+<% @config.sort.each do |k,v| -%>
+<%= k %>=<%= v %>
+<% end %>

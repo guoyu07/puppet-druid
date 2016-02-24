@@ -1,0 +1,75 @@
+#
+# Extensions
+#
+
+<% @common_extensions.sort.each do |k,v| -%>
+<%= k %>=<%= v %>
+<% end %>
+
+#
+# Zookeeper
+#
+
+druid.zk.service.host=<%= @zk_host %>
+druid.zk.paths.base=<%= @zk_path %>
+
+#
+# Metadata storage
+#
+
+# For MySQL:
+#druid.metadata.storage.type=mysql
+#druid.metadata.storage.connector.connectURI=jdbc:mysql://db.example.com:3306/druid
+#druid.metadata.storage.connector.user=...
+#druid.metadata.storage.connector.password=...
+
+<% @common_properties_metadata.sort.each do |k,v| -%>
+<%= k %>=<%= v %>
+<% end %>
+
+#
+# Deep storage
+#
+
+# For S3:
+#druid.storage.type=s3
+#druid.storage.bucket=your-bucket
+#druid.storage.baseKey=druid/segments
+#druid.s3.accessKey=...
+#druid.s3.secretKey=...
+
+<% @common_properties_deepstorage.sort.each do |k,v| -%>
+<%= k %>=<%= v %>
+<% end %>
+
+
+#
+# Indexing service logs
+#
+
+# For S3:
+#druid.indexer.logs.type=s3
+#druid.indexer.logs.s3Bucket=your-bucket
+#druid.indexer.logs.s3Prefix=druid/indexing-logs
+
+<% @common_properties_indexer.sort.each do |k,v| -%>
+<%= k %>=<%= v %>
+<% end %>
+
+#
+# Service discovery
+#
+
+druid.selectors.indexing.serviceName=<%= @common_selectors_indexing_service %>
+
+#
+# Monitoring
+#
+
+#druid.monitoring.monitors=["com.metamx.metrics.JvmMonitor"]
+#druid.emitter=logging
+#druid.emitter.logging.logLevel=debug
+
+<% @common_properties_monitoring.sort.each do |k,v| -%>
+<%= k %>=<%= v %>
+<% end %>
