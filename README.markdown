@@ -13,24 +13,22 @@
 
 Puppet module to manage Druid based on the Imply.io stack. This module manage all the Druid daemons and Bard.
 
-This module has only been tested on Ubuntu 14.04.
-
 ## Module Description
 
-This module will deploy the Imply.io tarball (See : http://imply.io/download) and will give you the possibility to start the different Druid services but also Bard (Bundle for Pivot, Plywood, and
+This module will deploy the Imply.io tarball (See: http://imply.io/download) and will give you the possibility to start the different Druid services, including Bard (Bundle for Pivot, Plywood, and
 PlyQL).
 
-More information about the Imply.io bundle here : http://imply.io.
+More information about the Imply.io bundle here: http://imply.io.
 
 ## Setup
 
 ### What druid affects
 
-Files manage by this module :
+Files managed by this module:
 
-* Deploy the imply tarball using Archive : https://forge.puppetlabs.com/nanliu/archive
-* Modify configuration in (by default) : /opt/imply/conf
-* Manage all Druid and Bard services : /etc/init.d/druid-*
+* Deploy the imply tarball using Archive: https://forge.puppetlabs.com/nanliu/archive
+* Modify configuration in: /opt/imply/conf (default)
+* Manage all Druid and Bard services: /etc/init.d/druid-*
 
 If asked, the module will also deploy Java and Nodejs.
 
@@ -39,7 +37,7 @@ If asked, the module will also deploy Java and Nodejs.
 
 ## Usage
 
-Deploy the tarball and the common configuration :
+Deploy the tarball and the common configuration:
 
 ```
 class { 'druid':
@@ -58,7 +56,7 @@ class { 'druid':
 By default, the package 'openjdk-8-jdk' from the PPA ppa:openjdk-r/ppa' will be deployed. You can override this configuration.
 
 
-Configure a Master node :
+Configure a Master node:
 
 ```
 class { 'druid': }
@@ -66,7 +64,7 @@ class { 'druid::coordinator': }
 class { 'druid::overlord': }
 ```
 
-Configure a Data node :
+Configure a Data node:
 
 ```
 class { 'druid': }
@@ -74,7 +72,7 @@ class { 'druid::middle_manager': }
 class { 'druid::historical': }
 ```
 
-Configure a Query node :
+Configure a Query node:
 
 ```
 class { 'druid': }
